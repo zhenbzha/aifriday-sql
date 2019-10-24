@@ -125,12 +125,14 @@ docker exec -it sql2 /bin/bash
 ```
 
 the output of this command should be similar to 
-![RestoredDB.PNG](/Media/RestoredDB.png)
+![RestoredDBList.PNG](/Media/RestoredDBList.png)
 
 6. Edit the `-P` with the value of `SA_PASSWORD` used to start the container and restore the database in the container:
 ```
 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'YourStrong!Passw0rd' -Q 'RESTORE DATABASE ProductCatalog FROM DISK = "/var/opt/mssql/data/SampleDB.bak" WITH MOVE "ProductCatalog" TO "/var/opt/mssql/data/ProductCatalog.mdf", MOVE "ProductCatalog_log" TO "/var/opt/mssql/data/ProductCatalog.ldf"'
 ```
+the output of this command should be similar to 
+![RestoredDB.PNG](/Media/RestoredDB.png)
 
 If you connect to the instance, you should see that the database was restored.
  
